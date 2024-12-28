@@ -1,0 +1,11 @@
+Model Information:
+* title:	Viking Motorcycle Helmet
+* source:	https://sketchfab.com/3d-models/viking-motorcycle-helmet-d6496eba043e4062ae48a45ed5ce5b86
+* author:	tosterficker247 (https://sketchfab.com/tosterficker247)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Viking Motorcycle Helmet" (https://sketchfab.com/3d-models/viking-motorcycle-helmet-d6496eba043e4062ae48a45ed5ce5b86) by tosterficker247 (https://sketchfab.com/tosterficker247) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

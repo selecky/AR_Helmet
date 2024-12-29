@@ -5,12 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/HelmetScene.unity
+    guid: 2a074b7f651994b3ab63a4849e2f5fba
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 1c0e8def3dc244b05b1bee89328b145e, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 0c8e457a0d30748f0a73a968a38207c5, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: f8c9b525ba3ac49d993f46ec4d41be4d, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: aa6120e56111a49a29c7f451bf0c16dd, type: 2}
   m_UseUCBPForAssetBundles: 0

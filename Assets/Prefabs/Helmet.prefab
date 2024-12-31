@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6689036041284674117, guid: dd00ba3e5bc3241329d9b1e3e238f740, type: 3}
       propertyPath: m_Name
-      value: scene
+      value: Helmet
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: dd00ba3e5bc3241329d9b1e3e238f740, type: 3}
       propertyPath: m_LocalPosition.x

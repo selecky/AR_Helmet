@@ -3,9 +3,16 @@ using UnityEngine;
 
 public class CanvasEventManager : MonoBehaviour
 {
-    public static event Action ButtonLeftTapEvent, ButtonRightTapEvent, ButtonHornsTapEvent;
+    public static event Action
+        EventButtonLeftPointerDown,
+        EventButtonLeftPointerUp,
+        EventButtonRightPointerDown,
+        EventButtonRightPointerUp,
+        EventButtonHornsClick;
 
-    public static void CallButtonLeftTapEvent() => ButtonLeftTapEvent?.Invoke();
-    public static void CallButtonRightTapEvent() => ButtonRightTapEvent?.Invoke();
-    public static void CallButtonHornsTapEvent() => ButtonHornsTapEvent?.Invoke();
+    public static void CallEventButtonLeftPointerDown() => EventButtonLeftPointerDown?.Invoke();
+    public static void CallEventButtonLeftPointerUp() => EventButtonLeftPointerUp?.Invoke();
+    public static void CallEventButtonRightPointerDown() => EventButtonRightPointerDown?.Invoke();
+    public static void CallEventButtonRightPointerUp() => EventButtonRightPointerUp?.Invoke();
+    public static void CallEventButtonHornsClick() => EventButtonHornsClick?.Invoke();
 }

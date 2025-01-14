@@ -2,15 +2,31 @@ using UnityEngine;
 
 public class HelmetScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private RotationBehavior _rotationBehavior;
+
+    private void Awake()
     {
-        
+        _rotationBehavior = gameObject.AddComponent<RotationBehavior>();
+        CanvasEventManager.EventButtonLeftPointerDown += RotateLeft;
+        CanvasEventManager.EventButtonLeftPointerUp += StopRotation;
+        CanvasEventManager.EventButtonRightPointerDown += RotateRight;
+        CanvasEventManager.EventButtonRightPointerUp += StopRotation;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void RotateLeft()
     {
-        
+        _rotationBehavior.StartRotation();
+        _rotationBehavior.ChangeRotationDirection(rotationDirection: RotationBehavior.RotationDirection.Left);
+    }
+
+    private void RotateRight()
+    {
+        _rotationBehavior.StartRotation();
+        _rotationBehavior.ChangeRotationDirection(rotationDirection: RotationBehavior.RotationDirection.Right);
+    }
+
+    private void StopRotation()
+    {
+        _rotationBehavior.StopRotation();
     }
 }

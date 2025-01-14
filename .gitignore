@@ -71,3 +71,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# JetBrains Rider or IntelliJ IDEA project files
+.idea/
+
+# Ignore UnityEditorDarkMode plugin
+Assets/Plugins/UnityEditorDarkMode/
+Assets/Plugins/UnityEditorDarkMode.meta

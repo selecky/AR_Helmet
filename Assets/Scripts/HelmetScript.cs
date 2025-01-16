@@ -1,5 +1,4 @@
-using System;
-using Unity.VisualScripting;
+using EventManagers;
 using UnityEngine;
 
 public class HelmetScript : MonoBehaviour
@@ -8,35 +7,35 @@ public class HelmetScript : MonoBehaviour
 
     private void Awake()
     {
-        _rotationBehavior = gameObject.AddComponent<RotationBehavior>();
+        _rotationBehavior = gameObject.GetComponent<RotationBehavior>();
     }
 
     private void OnEnable()
     {
-        CanvasEventManager.EventButtonLeftPointerDown += RotateLeft;
-        CanvasEventManager.EventButtonLeftPointerUp += StopRotation;
-        CanvasEventManager.EventButtonRightPointerDown += RotateRight;
-        CanvasEventManager.EventButtonRightPointerUp += StopRotation;
+        CanvasEventManagerScript.EventButtonLeftPointerDown += RotateLeft;
+        CanvasEventManagerScript.EventButtonLeftPointerUp += StopRotation;
+        CanvasEventManagerScript.EventButtonRightPointerDown += RotateRight;
+        CanvasEventManagerScript.EventButtonRightPointerUp += StopRotation;
     }
 
     private void OnDisable()
     {
-        CanvasEventManager.EventButtonLeftPointerDown -= RotateLeft;
-        CanvasEventManager.EventButtonLeftPointerUp -= StopRotation;
-        CanvasEventManager.EventButtonRightPointerDown -= RotateRight;
-        CanvasEventManager.EventButtonRightPointerUp -= StopRotation;
+        CanvasEventManagerScript.EventButtonLeftPointerDown -= RotateLeft;
+        CanvasEventManagerScript.EventButtonLeftPointerUp -= StopRotation;
+        CanvasEventManagerScript.EventButtonRightPointerDown -= RotateRight;
+        CanvasEventManagerScript.EventButtonRightPointerUp -= StopRotation;
     }
 
     private void RotateLeft()
     {
-        _rotationBehavior.StartRotation();
         _rotationBehavior.ChangeRotationDirection(rotationDirection: RotationBehavior.RotationDirection.Left);
+        _rotationBehavior.StartRotation();
     }
 
     private void RotateRight()
     {
-        _rotationBehavior.StartRotation();
         _rotationBehavior.ChangeRotationDirection(rotationDirection: RotationBehavior.RotationDirection.Right);
+        _rotationBehavior.StartRotation();
     }
 
     private void StopRotation()

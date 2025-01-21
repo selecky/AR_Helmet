@@ -24,7 +24,7 @@ public class RotationBehavior : MonoBehaviour
                 transform.Rotate(Vector3.down * (RotationSpeed * Time.deltaTime));
                 break;
             default:
-                transform.Rotate(Vector3.up * (RotationSpeed * Time.deltaTime));
+                transform.Rotate(Vector3.zero * (RotationSpeed * Time.deltaTime));
                 break;
         }
     }

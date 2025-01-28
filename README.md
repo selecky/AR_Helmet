@@ -1,10 +1,10 @@
 # AR Helmet
 
 ## Overview
-AR Helmet is a Unity-based mobile AR application that provides users with an interactive augmented reality experience. When the user's camera detects the provided helmet marker, a 3D motorcycle helmet spawns in the augmented environment. Users can rotate the helmet using buttons and trigger an animation that adds viking-style horns to the helmet.
+AR Helmet is a Unity-based mobile AR application that provides users with an interactive augmented reality experience. When the user's camera detects the provided marker image, a 3D motorcycle helmet spawns in the augmented environment. Users can rotate the helmet using buttons and trigger an animation that adds viking-style horns to the helmet.
 
 ## Features
-- **AR Marker Detection**: Detects the helmet marker image and spawns a 3D helmet at the marker's position.
+- **AR Marker Detection**: Detects the marker image and spawns a 3D helmet above the marker's position.
 - **Rotation Controls**: Use left and right buttons to rotate the helmet around its vertical axis.
 - **Horn Animation**: Press the "Horns" button to animate the Viking horns onto the helmet.
 
@@ -26,7 +26,7 @@ AR Helmet is a Unity-based mobile AR application that provides users with an int
     - **Horns**: Animates the Viking horns onto the helmet.
 
 ## Marker Image
-<img src="Assets/Images/marker_helmet.png" alt="Marker Image" width="300" height="300">
+<img src="Assets/Images/marker_image.png" alt="Marker Image" width="300" height="300">
 
 
 

@@ -78,3 +78,9 @@ crashlytics-build.properties
 # Ignore UnityEditorDarkMode plugin
 Assets/Plugins/UnityEditorDarkMode/
 Assets/Plugins/UnityEditorDarkMode.meta
+
+# Temporary auto-generated Assets
+/Assets/Resources/PerformanceTestRunInfo.json
+/Assets/Resources/PerformanceTestRunInfo.json.meta
+/Assets/Resources/PerformanceTestRunSettings.json
+/Assets/Resources/PerformanceTestRunSettings.json.meta

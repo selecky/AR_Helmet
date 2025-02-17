@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
+using EventManagers;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
@@ -14,14 +15,14 @@ public class DebugUIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.EventOnScreenTap += ShowClickedPosition;
+        CanvasEventManagerScript.EventOnScreenTap += ShowClickedPosition;
         sessionOrigin = FindObjectOfType<ARSessionOrigin>();
         raycastManager = sessionOrigin.GetComponent<ARRaycastManager>();
     }
 
     private void OnDisable()
     {
-        EventManager.EventOnScreenTap -= ShowClickedPosition;
+        CanvasEventManagerScript.EventOnScreenTap -= ShowClickedPosition;
     }
 
     void ShowClickedPosition(Vector3 vector3)

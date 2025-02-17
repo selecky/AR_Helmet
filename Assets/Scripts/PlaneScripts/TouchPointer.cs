@@ -1,3 +1,4 @@
+using EventManagers;
 using UnityEngine;
 
 public class TouchPointer : MonoBehaviour
@@ -5,12 +6,12 @@ public class TouchPointer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.EventOnScreenTap += MoveOnClick;
+        CanvasEventManagerScript.EventOnScreenTap += MoveOnClick;
     }
 
     private void OnDisable()
     {
-        EventManager.EventOnScreenTap -= MoveOnClick;
+        CanvasEventManagerScript.EventOnScreenTap -= MoveOnClick;
     }
 
     void MoveOnClick(Vector3 vector3)

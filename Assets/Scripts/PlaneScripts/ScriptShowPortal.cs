@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using EventManagers;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -16,7 +17,7 @@ public class ScriptShowPortal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.EventOnScreenTap += ShowPortal;
+        CanvasEventManagerScript.EventOnScreenTap += ShowPortal;
         sessionOrigin = FindObjectOfType<ARSessionOrigin>();
         raycastManager = sessionOrigin.GetComponent<ARRaycastManager>();
         planeManager = sessionOrigin.GetComponent<ARPlaneManager>();
@@ -34,7 +35,7 @@ public class ScriptShowPortal : MonoBehaviour
 
     private void OnDisable()
     {
-        EventManager.EventOnScreenTap -= ShowPortal;
+        CanvasEventManagerScript.EventOnScreenTap -= ShowPortal;
     }
 
     void ShowPortal(Vector3 vector3)

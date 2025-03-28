@@ -28,7 +28,7 @@ public class DebugUIScript : MonoBehaviour
     void ShowClickedPosition(Vector3 vector3)
     {
         hits = new List<ARRaycastHit>();
-        Text debugText = GetComponent<Text>();
+        Text infoText = GetComponent<Text>();
 
         bool colision =
             raycastManager.Raycast(new Vector2(vector3.x, vector3.y), hits, TrackableType.PlaneWithinPolygon);
@@ -42,6 +42,6 @@ public class DebugUIScript : MonoBehaviour
         sb.Append(colision);
         string textToDisplay = sb.ToString();
 
-        debugText.text = textToDisplay;
+        infoText.text = textToDisplay;
     }
 }

@@ -118,9 +118,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4251445170247895276, guid: dd00ba3e5bc3241329d9b1e3e238f740, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9016843603759640822}
-    - targetCorrespondingSourceObject: {fileID: -4251445170247895276, guid: dd00ba3e5bc3241329d9b1e3e238f740, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4623047371125714290}
     - targetCorrespondingSourceObject: {fileID: 6353312457568994188, guid: dd00ba3e5bc3241329d9b1e3e238f740, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6255746022109823163}
@@ -157,19 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943b2963e59844b42aa39f8fd6a06930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4623047371125714290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 189988014851582061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 595a1e4c6ef554829af67e1c6d868962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  helmetPrefab: {fileID: 7311287344318677698}
 --- !u!1 &2195131223060995317 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6353312457568994188, guid: dd00ba3e5bc3241329d9b1e3e238f740, type: 3}
@@ -209,8 +193,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &7311287344318677698 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -6689036041284674117, guid: dd00ba3e5bc3241329d9b1e3e238f740, type: 3}
-  m_PrefabInstance: {fileID: 5070257354211958649}
-  m_PrefabAsset: {fileID: 0}

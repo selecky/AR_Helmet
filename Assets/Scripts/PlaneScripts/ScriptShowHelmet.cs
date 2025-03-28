@@ -10,9 +10,9 @@ namespace PlaneScripts
     public class ScriptShowHelmet : MonoBehaviour
     {
         [SerializeField] private GameObject helmetPrefab;
-
         // [SerializeField] private GameObject effectPrefab;
-        private List<ARRaycastHit> _hits;
+
+        private readonly List<ARRaycastHit> _hits = new();
         bool _isHelmetShown;
         private ARPlaneManager _planeManager;
         private ARRaycastManager _raycastManager;
@@ -26,15 +26,6 @@ namespace PlaneScripts
             _isHelmetShown = false;
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (_planeManager.trackables.count > 0 && _planeManager.isActiveAndEnabled)
-            {
-                _planeManager.enabled = false;
-            }
-        }
-
         private void OnEnable()
         {
             CanvasEventManagerScript.EventOnScreenTap += ShowHelmet;
@@ -45,16 +36,16 @@ namespace PlaneScripts
             CanvasEventManagerScript.EventOnScreenTap -= ShowHelmet;
         }
 
-        void ShowHelmet(Vector3 vector3)
+        void ShowHelmet(Vector2 tapPosition)
         {
-            _hits = new List<ARRaycastHit>();
+            _hits.Clear();
 
             bool colision =
-                _raycastManager.Raycast(new Vector2(vector3.x, vector3.y), _hits, TrackableType.PlaneWithinPolygon);
+                _raycastManager.Raycast(tapPosition, _hits, TrackableType.PlaneWithinPolygon);
 
             if (colision && !_isHelmetShown)
             {
-                if (helmetPrefab != null)
+                if (helmetPrefab)
                 {
                     GameObject instantiatedHelmet = Instantiate(helmetPrefab);
                     instantiatedHelmet.transform.position = _hits[0].pose.position;

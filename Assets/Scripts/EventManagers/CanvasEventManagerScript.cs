@@ -32,13 +32,13 @@ namespace EventManagers
             EventButtonRightPointerUp,
             EventButtonHornsClick;
 
-        public static event Action<Vector3> EventOnScreenTap;
+        public static event Action<Vector2> EventOnScreenTap;
 
         public static void CallEventButtonLeftPointerDown() => EventButtonLeftPointerDown?.Invoke();
         public static void CallEventButtonLeftPointerUp() => EventButtonLeftPointerUp?.Invoke();
         public static void CallEventButtonRightPointerUp() => EventButtonRightPointerUp?.Invoke();
         public static void CallEventButtonRightPointerDown() => EventButtonRightPointerDown?.Invoke();
         public static void CallEventButtonHornsClick() => EventButtonHornsClick?.Invoke();
-        private static void CallEventOnScreenTap(Vector3 position) => EventOnScreenTap?.Invoke(position);
+        private static void CallEventOnScreenTap(Vector2 position) => EventOnScreenTap?.Invoke(position);
     }
 }

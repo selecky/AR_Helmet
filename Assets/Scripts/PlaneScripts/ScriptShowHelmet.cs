@@ -74,6 +74,7 @@ namespace PlaneScripts
                 _planeManager.SetTrackablesActive(false);
                 _planeManager.enabled = false;
                 _isHelmetShown = true;
+                PlanesEventManagerScript.CallEventOnPlanesDisabled();
             }
         }
     }

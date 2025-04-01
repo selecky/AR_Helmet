@@ -22,6 +22,10 @@ MonoBehaviour:
     m_Localized: Move camera slowly to detect planes.
     m_Metadata:
       m_Items: []
+  - m_Id: 14145308073123840
+    m_Localized: Touch the plane to instantite a helmet.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

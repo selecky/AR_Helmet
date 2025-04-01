@@ -16,7 +16,11 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: de64b3f2a63fc4a6c84e4dfcff403f98
   m_Entries:
   - m_Id: 6686238214971392
-    m_Key: Move Camera Info
+    m_Key: move_camera
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14145308073123840
+    m_Key: tap_plane
     m_Metadata:
       m_Items: []
   m_Metadata:

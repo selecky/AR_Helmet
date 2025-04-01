@@ -22,6 +22,10 @@ MonoBehaviour:
     m_Localized: "Pomalu h\xFDbejte kamerou pro detekci ploch."
     m_Metadata:
       m_Items: []
+  - m_Id: 14145308073123840
+    m_Localized: "Dotkn\u011Bte se plochy pro zobrazen\xED helmy."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

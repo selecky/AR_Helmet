@@ -10,9 +10,11 @@ namespace PlaneScripts
     public class ShowHelmetOnPlaneTapScript : MonoBehaviour
     {
         [SerializeField] private GameObject helmetPrefab;
-        // [SerializeField] private GameObject effectPrefab;
 
         private readonly List<ARRaycastHit> _hits = new();
+
+        // [SerializeField] private GameObject effectPrefab;
+        private GameObject _instantiatedHelmet;
         bool _isHelmetShown;
         private ARPlaneManager _planeManager;
         private ARRaycastManager _raycastManager;
@@ -29,11 +31,13 @@ namespace PlaneScripts
         private void OnEnable()
         {
             CanvasEventManagerScript.EventOnScreenTap += ShowHelmet;
+            CanvasEventManagerScript.EventButtonResetClick += ResetHelmet;
         }
 
         private void OnDisable()
         {
             CanvasEventManagerScript.EventOnScreenTap -= ShowHelmet;
+            CanvasEventManagerScript.EventButtonResetClick -= ResetHelmet;
         }
 
         void ShowHelmet(Vector2 tapPosition)
@@ -47,10 +51,10 @@ namespace PlaneScripts
             {
                 if (helmetPrefab)
                 {
-                    GameObject instantiatedHelmet = Instantiate(helmetPrefab);
-                    instantiatedHelmet.transform.position = _hits[0].pose.position;
-                    instantiatedHelmet.transform.rotation = _hits[0].pose.rotation;
-                    instantiatedHelmet.SetActive(true);
+                    _instantiatedHelmet = Instantiate(helmetPrefab);
+                    _instantiatedHelmet.transform.position = _hits[0].pose.position;
+                    _instantiatedHelmet.transform.rotation = _hits[0].pose.rotation;
+                    _instantiatedHelmet.SetActive(true);
                 }
 
                 // if (effectPrefab != null)
@@ -76,6 +80,19 @@ namespace PlaneScripts
                 _isHelmetShown = true;
                 PlanesEventManagerScript.CallEventOnPlanesDisabled();
             }
+        }
+
+        private void ResetHelmet()
+        {
+            if (_instantiatedHelmet)
+            {
+                Destroy(_instantiatedHelmet);
+                _instantiatedHelmet = null;
+            }
+
+            _planeManager.SetTrackablesActive(true);
+            _planeManager.enabled = true;
+            _isHelmetShown = false;
         }
     }
 }

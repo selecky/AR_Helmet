@@ -30,7 +30,8 @@ namespace EventManagers
             EventButtonLeftPointerUp,
             EventButtonRightPointerDown,
             EventButtonRightPointerUp,
-            EventButtonHornsClick;
+            EventButtonHornsClick,
+            EventButtonResetClick;
 
         public static event Action<Vector2> EventOnScreenTap;
 
@@ -40,5 +41,6 @@ namespace EventManagers
         public static void CallEventButtonRightPointerDown() => EventButtonRightPointerDown?.Invoke();
         public static void CallEventButtonHornsClick() => EventButtonHornsClick?.Invoke();
         private static void CallEventOnScreenTap(Vector2 position) => EventOnScreenTap?.Invoke(position);
+        public static void CallEventButtonResetClick() => EventButtonResetClick?.Invoke();
     }
 }

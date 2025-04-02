@@ -6,10 +6,8 @@ namespace EventManagers
     public class PlanesEventManagerScript : MonoBehaviour
     {
         public static event Action
-            EventOnPlanesVisible,
-            EventOnPlanesDisabled;
+            EventOnPlanesVisible;
 
         public static void CallEventOnPlanesVisible() => EventOnPlanesVisible?.Invoke();
-        public static void CallEventOnPlanesDisabled() => EventOnPlanesDisabled?.Invoke();
     }
 }

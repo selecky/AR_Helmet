@@ -10,6 +10,7 @@ namespace PlaneScripts
     public class ShowHelmetOnPlaneTapScript : MonoBehaviour
     {
         [SerializeField] private GameObject helmetPrefab;
+        [SerializeField] private ARSession arSession;
 
         private readonly List<ARRaycastHit> _hits = new();
 
@@ -78,7 +79,7 @@ namespace PlaneScripts
                 _planeManager.SetTrackablesActive(false);
                 _planeManager.enabled = false;
                 _isHelmetShown = true;
-                PlanesEventManagerScript.CallEventOnPlanesDisabled();
+                HelmetEventManagerScript.CallEventOnHelmetInstantiated();
             }
         }
 
@@ -90,9 +91,10 @@ namespace PlaneScripts
                 _instantiatedHelmet = null;
             }
 
-            _planeManager.SetTrackablesActive(true);
+            arSession.Reset(); // removing all planes from ARPlaneManager 
             _planeManager.enabled = true;
             _isHelmetShown = false;
+            HelmetEventManagerScript.CallEventOnHelmetDestroyed();
         }
     }
 }

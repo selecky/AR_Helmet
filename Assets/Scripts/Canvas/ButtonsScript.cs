@@ -7,13 +7,20 @@ namespace Canvas
     {
         void Awake()
         {
-            PlanesEventManagerScript.EventOnPlanesDisabled += ShowButtons;
+            HelmetEventManagerScript.EventOnHelmetInstantiated += ShowButtons;
+            HelmetEventManagerScript.EventOnHelmetDestroyed += HideButtons;
             gameObject.SetActive(false);
         }
 
         void OnDestroy()
         {
-            PlanesEventManagerScript.EventOnPlanesDisabled -= ShowButtons;
+            HelmetEventManagerScript.EventOnHelmetInstantiated -= ShowButtons;
+            HelmetEventManagerScript.EventOnHelmetDestroyed -= HideButtons;
+        }
+
+        private void HideButtons()
+        {
+            gameObject.SetActive(false);
         }
 
         private void ShowButtons()

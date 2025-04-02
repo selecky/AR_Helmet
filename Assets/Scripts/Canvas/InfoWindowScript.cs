@@ -17,6 +17,9 @@ namespace Canvas
         // Start is called before the first frame update
         void Awake()
         {
+            PlanesEventManagerScript.EventOnPlanesVisible += OnPlanesVisible;
+            HelmetEventManagerScript.EventOnHelmetInstantiated += OnHelmetInstantiated;
+            HelmetEventManagerScript.EventOnHelmetDestroyed += OnHelmetDestroyed;
             _infoText = GetComponentInChildren<TextMeshProUGUI>();
             _planeManager = xrOrigin.GetComponent<ARPlaneManager>();
         }
@@ -34,26 +37,30 @@ namespace Canvas
         {
             var stringToUse = LocalizationSettings.StringDatabase.GetLocalizedString("move_camera");
             _infoText.text = stringToUse;
-
-            PlanesEventManagerScript.EventOnPlanesVisible += ShowTextOnPlanesVisible;
-            PlanesEventManagerScript.EventOnPlanesDisabled += DisableInfoWindow;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
-            PlanesEventManagerScript.EventOnPlanesVisible -= ShowTextOnPlanesVisible;
-            PlanesEventManagerScript.EventOnPlanesDisabled -= DisableInfoWindow;
+            PlanesEventManagerScript.EventOnPlanesVisible -= OnPlanesVisible;
+            HelmetEventManagerScript.EventOnHelmetInstantiated -= OnHelmetInstantiated;
+            HelmetEventManagerScript.EventOnHelmetDestroyed -= OnHelmetDestroyed;
         }
 
-        void ShowTextOnPlanesVisible()
+        void OnPlanesVisible()
         {
             string stringToUse = LocalizationSettings.StringDatabase.GetLocalizedString("tap_plane");
             _infoText.text = stringToUse;
         }
 
-        void DisableInfoWindow()
+        void OnHelmetInstantiated()
         {
+            _arePlanesVisible = false;
             gameObject.SetActive(false);
+        }
+
+        private void OnHelmetDestroyed()
+        {
+            gameObject.SetActive(true);
         }
     }
 }

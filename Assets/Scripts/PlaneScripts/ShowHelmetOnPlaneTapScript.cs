@@ -7,7 +7,7 @@ using UnityEngine.XR.ARSubsystems;
 
 namespace PlaneScripts
 {
-    public class ScriptShowHelmet : MonoBehaviour
+    public class ShowHelmetOnPlaneTapScript : MonoBehaviour
     {
         [SerializeField] private GameObject helmetPrefab;
         // [SerializeField] private GameObject effectPrefab;

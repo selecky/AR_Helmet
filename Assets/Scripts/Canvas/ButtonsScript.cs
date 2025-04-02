@@ -5,12 +5,13 @@ namespace Canvas
 {
     public class ButtonsScript : MonoBehaviour
     {
-        void OnEnable()
+        void Awake()
         {
             PlanesEventManagerScript.EventOnPlanesDisabled += ShowButtons;
+            gameObject.SetActive(false);
         }
 
-        void OnDisable()
+        void OnDestroy()
         {
             PlanesEventManagerScript.EventOnPlanesDisabled -= ShowButtons;
         }

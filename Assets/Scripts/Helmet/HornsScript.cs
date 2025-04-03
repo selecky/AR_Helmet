@@ -9,9 +9,11 @@ public class HornsScript : MonoBehaviour
 
     private Animator _animator;
     private bool _areHornsRaised;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         _animator = GetComponent<Animator>();
         if (_animator == null)
         {
@@ -36,12 +38,22 @@ public class HornsScript : MonoBehaviour
         if (_areHornsRaised)
         {
             _animator.SetTrigger(HornsDownTrigger);
+            PlayHornsSound();
             _areHornsRaised = false;
         }
         else
         {
             _animator.SetTrigger(HornsUpTrigger);
+            PlayHornsSound();
             _areHornsRaised = true;
+        }
+    }
+
+    private void PlayHornsSound()
+    {
+        if (_audioSource)
+        {
+            _audioSource.Play(); // Start playing the audio
         }
     }
 

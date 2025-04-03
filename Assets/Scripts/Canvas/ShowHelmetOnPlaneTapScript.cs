@@ -11,12 +11,14 @@ namespace PlaneScripts
     {
         [SerializeField] private GameObject helmetPrefab;
         [SerializeField] private ARSession arSession;
+        [SerializeField] private GameObject effectPrefab;
 
         private readonly List<ARRaycastHit> _hits = new();
+        private GameObject _instantiatedEffect;
 
         // [SerializeField] private GameObject effectPrefab;
         private GameObject _instantiatedHelmet;
-        bool _isHelmetShown;
+        private bool _isHelmetShown;
         private ARPlaneManager _planeManager;
         private ARRaycastManager _raycastManager;
         private XROrigin _xrOrigin;
@@ -58,22 +60,22 @@ namespace PlaneScripts
                     _instantiatedHelmet.SetActive(true);
                 }
 
-                // if (effectPrefab != null)
-                // {
-                //     GameObject instantiatedEffect = Instantiate(effectPrefab);
-                //     instantiatedEffect.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                //     instantiatedEffect.transform.position = _hits[0].pose.position;
-                //     instantiatedEffect.transform.rotation = _hits[0].pose.rotation;
-                //     instantiatedEffect.SetActive(true);
-                //     AudioSource audioSource = instantiatedEffect.GetComponentInChildren<AudioSource>();
-                //     if (audioSource != null)
-                //     {
-                //         if (!audioSource.isPlaying)
-                //         {
-                //             audioSource.Play(); // Start playing the audio
-                //         }
-                //     }
-                // }
+                if (effectPrefab)
+                {
+                    _instantiatedEffect = Instantiate(effectPrefab);
+                    // instantiatedEffect.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                    _instantiatedEffect.transform.position = _hits[0].pose.position;
+                    _instantiatedEffect.transform.rotation = _hits[0].pose.rotation;
+                    _instantiatedEffect.SetActive(true);
+                    // AudioSource audioSource = instantiatedEffect.GetComponentInChildren<AudioSource>();
+                    // if (audioSource != null)
+                    // {
+                    //     if (!audioSource.isPlaying)
+                    //     {
+                    //         audioSource.Play(); // Start playing the audio
+                    //     }
+                    // }
+                }
 
 
                 _planeManager.SetTrackablesActive(false);
@@ -89,6 +91,12 @@ namespace PlaneScripts
             {
                 Destroy(_instantiatedHelmet);
                 _instantiatedHelmet = null;
+            }
+
+            if (_instantiatedEffect)
+            {
+                Destroy(_instantiatedEffect);
+                _instantiatedEffect = null;
             }
 
             arSession.Reset(); // removing all planes from ARPlaneManager 

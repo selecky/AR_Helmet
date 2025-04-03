@@ -12,8 +12,9 @@ namespace PlaneScripts
         [SerializeField] private GameObject helmetPrefab;
         [SerializeField] private ARSession arSession;
         [SerializeField] private GameObject effectPrefab;
-
         private readonly List<ARRaycastHit> _hits = new();
+
+        private AudioSource _audioSource;
         private GameObject _instantiatedEffect;
 
         // [SerializeField] private GameObject effectPrefab;
@@ -25,6 +26,7 @@ namespace PlaneScripts
 
         void Start()
         {
+            _audioSource = GetComponent<AudioSource>();
             _xrOrigin = FindFirstObjectByType<XROrigin>();
             _raycastManager = _xrOrigin.GetComponent<ARRaycastManager>();
             _planeManager = _xrOrigin.GetComponent<ARPlaneManager>();
@@ -57,24 +59,21 @@ namespace PlaneScripts
                     _instantiatedHelmet = Instantiate(helmetPrefab);
                     _instantiatedHelmet.transform.position = _hits[0].pose.position;
                     _instantiatedHelmet.transform.rotation = _hits[0].pose.rotation;
-                    _instantiatedHelmet.SetActive(true);
                 }
 
                 if (effectPrefab)
                 {
                     _instantiatedEffect = Instantiate(effectPrefab);
-                    // instantiatedEffect.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     _instantiatedEffect.transform.position = _hits[0].pose.position;
                     _instantiatedEffect.transform.rotation = _hits[0].pose.rotation;
-                    _instantiatedEffect.SetActive(true);
-                    // AudioSource audioSource = instantiatedEffect.GetComponentInChildren<AudioSource>();
-                    // if (audioSource != null)
-                    // {
-                    //     if (!audioSource.isPlaying)
-                    //     {
-                    //         audioSource.Play(); // Start playing the audio
-                    //     }
-                    // }
+
+                    if (_audioSource)
+                    {
+                        if (!_audioSource.isPlaying)
+                        {
+                            _audioSource.Play(); // Start playing the audio
+                        }
+                    }
                 }
 
 

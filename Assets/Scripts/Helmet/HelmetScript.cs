@@ -1,45 +1,48 @@
 using EventManagers;
 using UnityEngine;
 
-public class HelmetScript : MonoBehaviour
+namespace Helmet
 {
-    private RotationBehavior _rotationBehavior;
-
-    private void Awake()
+    public class HelmetScript : MonoBehaviour
     {
-        _rotationBehavior = gameObject.GetComponent<RotationBehavior>();
-    }
+        private RotationBehavior _rotationBehavior;
 
-    private void OnEnable()
-    {
-        CanvasEventManagerScript.EventButtonLeftPointerDown += RotateLeft;
-        CanvasEventManagerScript.EventButtonLeftPointerUp += StopRotation;
-        CanvasEventManagerScript.EventButtonRightPointerDown += RotateRight;
-        CanvasEventManagerScript.EventButtonRightPointerUp += StopRotation;
-    }
+        private void Awake()
+        {
+            _rotationBehavior = gameObject.GetComponent<RotationBehavior>();
+        }
 
-    private void OnDisable()
-    {
-        CanvasEventManagerScript.EventButtonLeftPointerDown -= RotateLeft;
-        CanvasEventManagerScript.EventButtonLeftPointerUp -= StopRotation;
-        CanvasEventManagerScript.EventButtonRightPointerDown -= RotateRight;
-        CanvasEventManagerScript.EventButtonRightPointerUp -= StopRotation;
-    }
+        private void OnEnable()
+        {
+            CanvasEventManagerScript.EventButtonLeftPointerDown += RotateLeft;
+            CanvasEventManagerScript.EventButtonLeftPointerUp += StopRotation;
+            CanvasEventManagerScript.EventButtonRightPointerDown += RotateRight;
+            CanvasEventManagerScript.EventButtonRightPointerUp += StopRotation;
+        }
 
-    private void RotateLeft()
-    {
-        _rotationBehavior.ChangeRotationDirection(rotationDirection: RotationBehavior.RotationDirection.Left);
-        _rotationBehavior.StartRotation();
-    }
+        private void OnDisable()
+        {
+            CanvasEventManagerScript.EventButtonLeftPointerDown -= RotateLeft;
+            CanvasEventManagerScript.EventButtonLeftPointerUp -= StopRotation;
+            CanvasEventManagerScript.EventButtonRightPointerDown -= RotateRight;
+            CanvasEventManagerScript.EventButtonRightPointerUp -= StopRotation;
+        }
 
-    private void RotateRight()
-    {
-        _rotationBehavior.ChangeRotationDirection(rotationDirection: RotationBehavior.RotationDirection.Right);
-        _rotationBehavior.StartRotation();
-    }
+        private void RotateLeft()
+        {
+            _rotationBehavior.ChangeRotationDirection(rotationDirection: RotationBehavior.RotationDirection.Left);
+            _rotationBehavior.StartRotation();
+        }
 
-    private void StopRotation()
-    {
-        _rotationBehavior.StopRotation();
+        private void RotateRight()
+        {
+            _rotationBehavior.ChangeRotationDirection(rotationDirection: RotationBehavior.RotationDirection.Right);
+            _rotationBehavior.StartRotation();
+        }
+
+        private void StopRotation()
+        {
+            _rotationBehavior.StopRotation();
+        }
     }
 }

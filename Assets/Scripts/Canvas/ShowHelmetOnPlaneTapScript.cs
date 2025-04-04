@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-namespace PlaneScripts
+namespace Canvas
 {
     public class ShowHelmetOnPlaneTapScript : MonoBehaviour
     {
@@ -69,10 +69,7 @@ namespace PlaneScripts
 
                     if (_audioSource)
                     {
-                        if (!_audioSource.isPlaying)
-                        {
-                            _audioSource.Play(); // Start playing the audio
-                        }
+                        _audioSource.Play();
                     }
                 }
 

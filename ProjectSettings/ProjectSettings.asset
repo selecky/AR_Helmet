@@ -79,7 +79,7 @@ PlayerSettings:
   androidFullscreenMode: 1
   androidAutoRotationBehavior: 1
   androidPredictiveBackSupport: 0
-  androidApplicationEntry: 2
+  androidApplicationEntry: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
   runInBackground: 0
@@ -166,7 +166,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.tomse.ARHelmet
     Standalone: com.Unity-Technologies.com.unity.template.urp-blank
-    iPhone: com.Tomse.AR-Helmet
+    iPhone: com.tomse.AR-Helmet
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -264,7 +264,7 @@ PlayerSettings:
   useCustomGradlePropertiesTemplate: 0
   useCustomGradleSettingsTemplate: 0
   useCustomProguardFile: 0
-  AndroidTargetArchitectures: 2
+  AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: '{dedicated}: ar-helmet-upload-keystore.jks'
@@ -836,8 +836,10 @@ PlayerSettings:
   platformArchitecture: {}
   scriptingBackend:
     Android: 1
-  il2cppCompilerConfiguration: {}
-  il2cppCodeGeneration: {}
+  il2cppCompilerConfiguration:
+    Android: 1
+  il2cppCodeGeneration:
+    Android: 0
   il2cppStacktraceInformation: {}
   managedStrippingLevel:
     Android: 1
@@ -943,7 +945,7 @@ PlayerSettings:
   qnxGraphicConfPath: 
   apiCompatibilityLevel: 6
   captureStartupLogs: {}
-  activeInputHandler: 1
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: b671fdcb-9209-4e61-a5e3-2af69b1baa29
   framebufferDepthMemorylessMode: 0
